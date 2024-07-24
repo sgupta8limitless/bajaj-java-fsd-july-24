@@ -1,0 +1,170 @@
+to connect to the server
+--psql -d dbname -U username -h hostadress -p port
+
+to create a new db
+--create database dbname
+
+to switch to a newdb
+--\c dbname
+
+to create a table
+
+create table tablename(
+columnanme datatype,
+columnname type
+.
+.
+ncolumn type
+);
+
+
+create table users(
+name varchar(20),
+age int,
+city varchar(20)
+);
+
+
+to view the description of table
+--\d tablename
+
+
+to insert data in table
+--insert into tbname values('value1',value2)
+
+insert into users values('Abhay',27,'Pune')
+
+
+to view data of a table
+--select * from tbname
+
+
+to delete a table
+--drop table tbname
+
+
+create table users
+(
+id serial primary key,
+name varchar(20) not null,
+age int check(age>15),
+city varchar(20) default 'Mumbai',
+created_at timestamp default current_timestamp
+);
+
+
+insert into employees(name,age,city,sal) values
+('Harshada',32,'Indore',120000),
+('Omkar',21,'Hyderabad',50000),
+('Gaurav',19,'Vijaywada',30000);
+
+
+create table department(id serial,name varchar(20));
+
+
+the command to delete
+-- delete from tablename where condn
+
+command to update
+--update tablename 
+set columnname=newvalue,col2=newvalue.. 
+where condn
+
+
+
+to add column
+--alter table tablename
+add column clmname type;
+
+to remove a column
+--alter table tablename
+drop column clmname;
+
+to change type of a column
+--alter table tablename
+alter columnname type newtype
+
+to rename a column
+--alter table tablename
+rename column oldname to newname;
+
+to rename a table
+--alter table tablename
+rename to newname;
+
+
+to delete everything from table at once
+--truncate table tablename;
+
+
+
+
+
+command formation
+
+select [*,columnname] from tablename
+where condn
+group by columnname
+having condition [aggregates functions re allowed]
+order by columname
+
+
+
+DDL
+Create,Alter,Drop,Truncate
+
+
+DML
+Insert,Delete,Update,Select
+
+
+Clauses
+Where
+
+relational/comparison ops
+=, > , < , >= ,<=, != , <>
+
+conditional/logical
+and , or
+
+operators
+in, not in ,between, like
+
+aggregate functions
+
+max(),min(),sum(),avg(),count()
+
+
+
+
+
+Assignment
+
+Products (name,price,quantity,discount,category)
+
+price should never be zero
+quanity should never be negative
+discount should never be negative
+
+1. fetch all the records whose category starts with s
+
+2. fetch all the records where quantity and discount are zero
+
+3. fetch name,price and discounted price for all products
+
+4.fetch the discounted price of all the products of electronics category 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
