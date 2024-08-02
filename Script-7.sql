@@ -119,6 +119,70 @@ select * from customers ;
 
 
 
+begin transaction;
+
+update customers set city = 'kashi2' where id =12;
+
+savepoint a2;
+
+update customers set city = 'Hyderabad2' where id =11;
+
+end transaction;
+
+
+rollback to a2;
+
+
+
+select * from customers;
+
+update customers set city = 'pune' where id =1;
+
+insert into customers(name,email,city) values('Ishwar','ish@gmail.com','Indore');
+
+create table cust_backup(
+id serial primary key,
+email varchar(30) not null unique,
+created_at timestamp default current_timestamp
+);
+
+select * from cust_backup;
+
+delete from customers where id = 2;
+
+
+
+create or replace function triggercall()
+returns trigger
+language plpgsql
+as $$
+begin
+	insert into cust_backup(email) values(old.email);
+	return null;
+end; $$;
+
+
+
+create or replace trigger custupdate
+after delete 
+on customers
+for each row
+execute procedure triggercall()
+
+select * from information_schema.triggers;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,81 @@
+PS C:\Users\SAURABH\Desktop\api> git init
+Initialized empty Git repository in C:/Users/SAURABH/Desktop/api/.git/
+PS C:\Users\SAURABH\Desktop\api> git add .
+PS C:\Users\SAURABH\Desktop\api> git commit -m "api 1 added"
+[master (root-commit) 7223754] api 1 added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 api1.js
+PS C:\Users\SAURABH\Desktop\api> git add .       
+PS C:\Users\SAURABH\Desktop\api> git commit -m "api 2 added"
+[master 3df68e1] api 2 added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 api2.js
+PS C:\Users\SAURABH\Desktop\api> git branch testing
+PS C:\Users\SAURABH\Desktop\api> git checkout testing
+Switched to branch 'testing'
+PS C:\Users\SAURABH\Desktop\api> git branch
+  master
+* testing
+PS C:\Users\SAURABH\Desktop\api> git add .
+PS C:\Users\SAURABH\Desktop\api> git commit -m "test 1 added"
+[testing d9931a1] test 1 added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test1.js
+PS C:\Users\SAURABH\Desktop\api> git add .
+PS C:\Users\SAURABH\Desktop\api> git commit -m "test 2 added"
+[testing 53d2128] test 2 added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test2.js
+PS C:\Users\SAURABH\Desktop\api> git checkout master
+Switched to branch 'master'
+PS C:\Users\SAURABH\Desktop\api> git branch
+* master
+  testing
+PS C:\Users\SAURABH\Desktop\api> git add .
+PS C:\Users\SAURABH\Desktop\api> git commit -m "api 3 added"
+[master e873bdc] api 3 added
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 api3.js
+PS C:\Users\SAURABH\Desktop\api> git log master --oneline
+e873bdc (HEAD -> master) api 3 added
+3df68e1 api 2 added
+7223754 api 1 added
+PS C:\Users\SAURABH\Desktop\api> git log testing --oneline
+53d2128 (testing) test 2 added
+d9931a1 test 1 added
+3df68e1 api 2 added
+7223754 api 1 added
+PS C:\Users\SAURABH\Desktop\api> git branch
+* master
+  testing
+PS C:\Users\SAURABH\Desktop\api> git checkout testing
+Switched to branch 'testing'
+PS C:\Users\SAURABH\Desktop\api> git rebase master
+Successfully rebased and updated refs/heads/testing.
+PS C:\Users\SAURABH\Desktop\api> git log master --oneline
+e873bdc (master) api 3 added
+3df68e1 api 2 added
+7223754 api 1 added
+PS C:\Users\SAURABH\Desktop\api> git log testing --oneline
+08455ef (HEAD -> testing) test 2 added
+50a14a6 test 1 added
+e873bdc (master) api 3 added
+3df68e1 api 2 added
+7223754 api 1 added
+PS C:\Users\SAURABH\Desktop\api> git checkout master
+Switched to branch 'master'
+PS C:\Users\SAURABH\Desktop\api> git merge testing
+Updating e873bdc..08455ef
+Fast-forward
+ test1.js | 0
+ test2.js | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 test1.js
+ create mode 100644 test2.js
+PS C:\Users\SAURABH\Desktop\api> git log master --oneline
+08455ef (HEAD -> master, testing) test 2 added
+50a14a6 test 1 added
+e873bdc api 3 added
+3df68e1 api 2 added
+7223754 api 1 added
+PS C:\Users\SAURABH\Desktop\api> 

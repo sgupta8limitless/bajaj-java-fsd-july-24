@@ -1,0 +1,44 @@
+to init a repo locally
+-- git init
+
+to view the status of repo and local folder
+-- git status
+
+to track or to add a file to staging
+-- git add filename / .
+
+to unstage or untrack file from staging
+-- git restore filename / . --staged
+
+to commit a file to local repo
+-- git commit -m "some message"
+
+to view commit history
+-- git log 
+
+to view commit history of specific branch
+-- git log brnachname
+
+to view commit history in one line
+-- git log --oneline
+
+to connect a GitHub/GitLab repo to local repo
+-- get remote add origin repourl
+
+to push local repo things to GitHub repo
+-- git push origin branchname
+
+to pull global changes to local repo and project
+-- git pull origin branchname
+
+to view the all branch name
+-- git branch
+
+to swich branch
+-- git checkout branchname
+
+to cherrypick merge some commits
+-- git cherry-pick commitid commitid ... commitid
+
+
+
