@@ -556,6 +556,169 @@ db.products.insertMany([
 
 
 
+    // loopup  for relations 
+
+    db.departments.insertMany([
+      {name:"IT"},
+      {name:"HR"},
+      {name:"Sales"}
+    ])
+
+    db.employees.insertMany([
+      {name:"Abhay",age:22,city:"Mumbai",department:ObjectId('66b1b4a17ebcf73a9aa28f45')},
+      {name:"Vinaya",age:25,city:"Pune",department:ObjectId('66b1b4a17ebcf73a9aa28f44')},
+      {name:"Harshada",age:28,city:"Mumbai",department:ObjectId('66b1b4a17ebcf73a9aa28f44')}
+    ])
 
 
 
+    db.departments.aggregate([
+
+      {
+        $lookup:{
+          from:"employees",
+          localField:"_id",
+          foreignField:"department",
+          as:"employees"
+        } 
+      }
+
+    ])
+
+    db.employees.aggregate([
+
+      {
+        $lookup:{
+          from:"departments",
+          localField:"department",
+          foreignField:"_id",
+          as:"department"
+        } 
+      },
+
+      {$unwind:'$department'}
+
+
+    ])
+
+
+
+    //students and subjects 
+
+    db.subjects.insertMany([
+      {name:"Science"},
+      {name:"Maths"},
+      {name:"History"},
+      {name:"Geography"}
+    ])  
+
+    // { _id: ObjectId('66b1c53e7ebcf73a9aa28f4b'), name: 'Science' },
+    // { _id: ObjectId('66b1c53e7ebcf73a9aa28f4c'), name: 'Maths' },
+    // { _id: ObjectId('66b1c53e7ebcf73a9aa28f4d'), name: 'History' },
+    // { _id: ObjectId('66b1c53e7ebcf73a9aa28f4e'), name: 'Geography' }
+
+
+    db.students.insertMany([
+      {
+        name:"Rahul",
+        age:14,
+        subjects:[ObjectId('66b1c53e7ebcf73a9aa28f4b'),ObjectId('66b1c53e7ebcf73a9aa28f4d')]
+      },
+      {
+        name:"Sachin",
+        age:13,
+        subjects:[ObjectId('66b1c53e7ebcf73a9aa28f4e'),ObjectId('66b1c53e7ebcf73a9aa28f4d'),ObjectId('66b1c53e7ebcf73a9aa28f4d')]
+      },
+
+    ])
+
+
+    db.students.insertOne(
+      {
+        name:"Prajakta",
+        age:14,
+        subjects:[]
+      }
+    )
+
+
+
+
+    db.students.aggregate([
+      {
+        $lookup:{
+          from:"subjects",
+          localField:"subjects",
+          foreignField:"_id",
+          as:"subjects"
+        }
+      },
+      {$match:{subjects:{$ne:null}}}
+     
+    ])
+
+
+    db.createCollection("customers")
+
+    db.customers.insertMany([
+      {name:"Dale",city:"Cape Town"},
+      {name:"Thor",city:"Asgard"},
+      {name:"Steve",city:"Brooklyn"},
+      {name:"Tony",city:"New York"}
+    ])
+
+
+    db.orders.insertMany([
+      {
+        product:ObjectId('66b06b4fd25399a457e4c21e'),
+        customer:ObjectId('66b1cf5b7ebcf73a9aa28f53'),
+        quantity:1
+      },
+      {
+        product:ObjectId('66b06b4fd25399a457e4c21f'),
+        customer:ObjectId('66b1cf5b7ebcf73a9aa28f54'),
+        quantity:3
+      },
+      {
+        product:ObjectId('66b06b4fd25399a457e4c228'),
+        customer:ObjectId('66b1cf5b7ebcf73a9aa28f55'),
+        quantity:10
+      }
+    ])
+
+
+    db.orders.aggregate([
+      {
+        $lookup:{
+          from:'products',
+          localField:'product',
+          foreignField:'_id',
+          as:'product'
+        }
+      },
+      {
+        $lookup:{
+          from:'customers',
+          localField:'customer',
+          foreignField:'_id',
+          as:'customer'
+        }
+      }
+      ,
+      {$unwind:'$product'},
+      {$unwind:'$customer'},
+      {$project:{pname:'$product.name',quantity:1}}
+    ])
+
+
+
+
+    
+
+
+
+
+
+    // to explain a query 
+
+    db.collection.anyQuery().explain('executionStats')
