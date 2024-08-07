@@ -712,6 +712,46 @@ db.products.insertMany([
 
 
 
+    
+  
+
+
+
+
+    db.products.aggregate([
+      {
+        $group:{
+          _id:null,
+          avgPrice:{$avg:'$price'}
+        }
+      },
+      {
+          $lookup:{
+            from:'products',
+            pipeline:[],
+            as:'product'
+        }
+      },
+      {$unwind:'$product'},
+      {$project:{
+        name:'$product.name',
+        price:'$product.price',
+        avgPrice:1,
+        isGreater:{$cmp:['$product.price','$avgPrice']}
+      }},
+      {$match:{isGreater:1}}
+    
+    ])
+
+
+
+    
+
+
+
+   
+
+    
 
     
 
