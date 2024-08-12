@@ -1,0 +1,13 @@
+PLSQL
+
+1.Write a recursive PL/pgSQL function to calculate the factorial of a given number. Ensure that the function handles edge cases, such as negative inputs, appropriately.
+
+2. Create a PL/pgSQL function that accepts a table name and a column name as parameters, then returns the count of NULL values in the specified column. The function should use dynamic SQL to handle different tables and columns. Implement error handling to manage scenarios where the table or column does not exist.
+
+3. Write a PL/pgSQL function to automate the creation of partition tables based on a date column. The function should create a new partition for the next month if it doesn't already exist and should log the creation action in an audit table.
+
+4.Implement a PL/pgSQL trigger function that logs changes (inserts, updates, and deletes) to a particular table into an audit table. The audit table should capture the type of operation, the old data (for updates and deletes), the new data (for inserts and updates), the user who performed the action, and a timestamp.
+
+5. Write a PL/pgSQL procedure that uses cursors to migrate data from a large source table to a destination table in chunks. The procedure should handle potential errors during migration (e.g., duplicates or constraint violations) and log these errors for review.
+
+6. Create a PL/pgSQL function that calculates the running total of sales for each product in a sales table. The function should return a result set with the product ID, sales date, daily sales, and the running total up to that date, ordered by product ID and sales date.
