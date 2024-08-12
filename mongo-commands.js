@@ -745,17 +745,15 @@ db.products.insertMany([
 
 
 
-    
+    // indexing in mongo 
 
+    db.collection.createIndex({column:1})
 
+    db.collection.createIndex({column:1,column:1})
 
-   
+    db.collection.getIndexes()
 
-    
-
-    
-
-
+    db.collection.dropIndex('indexname')
 
 
 
