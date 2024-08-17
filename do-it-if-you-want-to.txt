@@ -11,3 +11,27 @@ PLSQL
 5. Write a PL/pgSQL procedure that uses cursors to migrate data from a large source table to a destination table in chunks. The procedure should handle potential errors during migration (e.g., duplicates or constraint violations) and log these errors for review.
 
 6. Create a PL/pgSQL function that calculates the running total of sales for each product in a sales table. The function should return a result set with the product ID, sales date, daily sales, and the running total up to that date, ordered by product ID and sales date.
+
+
+
+
+
+####JAVA
+
+Create a Person class with attributes like name, age, and methods to get and set these attributes. Implement a main class to create and manipulate Person objects.
+
+Extend the Person class to include multiple constructors (default, parameterized) and demonstrate constructor overloading.
+
+Create a base class Employee with attributes like id, name, and salary. Extend this class to create subclasses Manager and Developer, adding unique attributes and methods to each subclass.
+
+Extend the previous Employee program. Override a method in the Developer class (e.g., calculateSalary()), and use the super keyword to call the superclass method.
+
+Create an interface Payable with a method calculateBonus(). Implement this interface in both Manager and Developer classes, and demonstrate polymorphism by using the interface reference.
+
+Write a program that creates an array of integers, performs operations like sorting, finding the maximum and minimum values, and calculating the average.
+
+Create an ArrayList of Person objects. Add, remove, and iterate through the list, and sort the list based on the name attribute using a custom comparator.
+
+Using the ArrayList of Person objects, demonstrate the use of Java Streams to filter the list (e.g., find all persons above a certain age), map the list (e.g., get names of all persons), and collect the results into a new list.
+
+Create a HashMap to store Employee objects with their id as the key. Demonstrate adding, removing, and iterating through the map. Implement a method to search for an employee by id.
