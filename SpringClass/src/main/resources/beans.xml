@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="electronicProduct" class="org.example.ElectronicProduct"></bean>
+
+    <bean id="clothingProduct" class="org.example.ClothingProduct"></bean>
+
+    <bean id="productManager" class="org.example.ProductManager">
+<!--        <constructor-arg ref="electronicProduct"></constructor-arg>-->
+        <property name="name" value="Saurabh"></property>
+        <property name="product" ref="electronicProduct"></property>
+    </bean>
+
+
+
+</beans>

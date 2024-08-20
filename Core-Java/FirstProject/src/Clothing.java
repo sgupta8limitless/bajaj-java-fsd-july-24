@@ -1,5 +1,5 @@
-public class Clothing extends Product {
-
-
-
-}
+//public class Clothing extends Product {
+//
+//
+//
+//}
