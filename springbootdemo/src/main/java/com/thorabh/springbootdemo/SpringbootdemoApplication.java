@@ -4,95 +4,46 @@ import com.thorabh.springbootdemo.entity.Address;
 import com.thorabh.springbootdemo.entity.User;
 import com.thorabh.springbootdemo.repository.AddressRepository;
 import com.thorabh.springbootdemo.repository.UserRepository;
+import com.thorabh.springbootdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.Optional;
+
+//please implement commandlinerunner if you want to execute below code
 
 @SpringBootApplication
-public class SpringbootdemoApplication implements CommandLineRunner {
+public class SpringbootdemoApplication  {
 
-	@Autowired
-	UserRepository userRepository;
+//	@Autowired
+//	UserService userService;
 
-	@Autowired
-	AddressRepository addressRepository;
+//	@Autowired
+//	UserRepository userRepository;
+//
+//	@Autowired
+//	AddressRepository addressRepository;
+
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootdemoApplication.class, args);
 	}
 
-
-
-	@Override
-	public void run(String... args) throws Exception {
-
-
-//		Creation
-
-//		User user = new User("Harshada","harshada@gmail.com");
+//	@Override
+//	public void run(String... args) throws Exception {
 //
-//		User savedUser = userRepository.save(user);
+//		User user = new User("Sachin","sachin@gmail.com");
+////		userService.create(user);
 //
-//		if(savedUser.getId()!=null)
-//		{
-//			System.out.println(savedUser);
-//		}
-
-//		fetch all data
-
-//		List<User> users = userRepository.findAll();
+//		Address address = new Address("Viman nagar","Pune","677898");
+//		address.setUser(user);
 //
-//		users.forEach(user -> {
-//			System.out.println(user);
-//		} );
-
-//		Update data
-
-//	 	Optional<User> optionalUser =  userRepository.findById(1L);
+//		user.getAddressList().add(address);
 //
-//		 if(optionalUser.isPresent())
-//		 {
-//			 User user = optionalUser.get();
-//			 user.setEmail("ish@gmail.com");
-//			 userRepository.save(user);
+//		userRepository.save(user);
 //
-//		 }
-//		 else
-//		 {
-//			 System.out.println("user not found");
-//		 }
-
-//		delete ops
-
-
-//		userRepository.deleteById(2L);
-
-		Optional<User> userOptional = userRepository.findById(1L);
-
-		if(userOptional.isPresent())
-		{
-			Address address = new Address();
-			address.setLineOne("Seawoods Mall");
-			address.setCity("New Mumbai");
-			address.setPincode("41926");
-			address.setUser(userOptional.get());
-
-			addressRepository.save(address);
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-	}
+//
+//	}
 }
