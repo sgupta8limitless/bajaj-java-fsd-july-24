@@ -1,6 +1,7 @@
 package com.thorabh.springbootdemo.service;
 
 import com.thorabh.springbootdemo.entity.User;
+import com.thorabh.springbootdemo.exception.EntityNotFound;
 import com.thorabh.springbootdemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,12 +34,22 @@ public class UserService {
 
     public String delete(Long id)
     {
-        userRepository.deleteById(id);
-        return "Deleted";
+
+        Optional<User> userOptional = userRepository.findById(id);
+
+        if(userOptional.isPresent())
+        {
+            userRepository.deleteById(id);
+            return "Deleted";
+        }
+
+        throw new EntityNotFound("The User You want to delete is not present");
+
+
+
     }
 
-    public Object update(Long id,User user)
-    {
+    public User update(Long id,User user)  {
         Optional<User> userOptional = userRepository.findById(id);
 
         if(userOptional.isPresent())
@@ -51,7 +62,7 @@ public class UserService {
             return userRepository.save(updateUser);
         }
 
-        return "Not Found";
+       throw new EntityNotFound("User Not Found");
 
 
 
