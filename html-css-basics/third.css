@@ -1,0 +1,30 @@
+
+    /* selectors   */
+
+    p
+    {
+        color: green;
+        font-family: calibri;
+    } 
+
+    .paragold
+    {
+    color: gold;
+    }
+
+    #para4
+    {
+    color: blue;
+    }
+
+    .bggreen
+    {
+        color: skyblue;
+    }
+
+    h1 
+    {
+    color: red;
+    }
+
+
