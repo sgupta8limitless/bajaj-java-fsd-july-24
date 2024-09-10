@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <p>Hello</p>
+
+
+
+    <script>
+         
+        
+        let firstname = "Saurabh";
+        let age = 23;
+        let check = true;
+
+
+
+        // let str = "My Name is "+firstname+" and age is "+age;
+        // let str = `My name is ${name} and age is ${age}`;
+        // console.log(str);
+
+    // let per = 69;
+
+    // if(per <= 100 && per>=90)
+    // {
+    //     console.log("O grade");
+    // }
+    // else if(per<90 && per >=70)
+    // {
+    //     console.log("A Grade")
+    // }
+    // else 
+    // {
+    //     console.log("Fail");
+    // }
+
+
+    // let status = 2;
+
+    // switch(status)
+    // {
+    //     case 1:{
+    //         console.log("A class");
+    //         break;
+    //     }
+    //     case 2:{
+    //         console.log("B class");
+    //         break;
+    //     }
+    //     default:{
+    //         console.log("General");
+    //     }
+    // }
+
+
+    // let i = 1;
+
+    // while(i<=10)
+    // {
+    //     console.log(i);
+    //     i++;
+    // }
+
+    // do 
+    // {
+    //     console.log(i);
+    //     i++;
+    // }
+    // while(i<=10);
+    // let str = "";
+    // for(let i=0;i<=10;i++)
+    // {
+    //     // str+=" "+i;
+    // }
+
+    // console.log(str);
+
+    // let name = "saurabh"
+        
+   
+
+    // let nums1 = [23,45,67]
+
+    // let nums2 = [...nums1];
+
+
+    // console.log(nums1,nums2);
+
+
+    // let names = ["Ishwar","Omkar","Gaurav","Nilesh"];
+
+    // for(let i=0;i<names.length;i++)
+    // {
+    //     console.log(names[i]);
+    // }
+
+    // console.log(`the length is ${names.length}`);
+
+
+    // functions
+
+   
+    
+    // function doSomething(name,age=23)
+    // {
+    //     console.log("i am "+name+" and age is "+age);
+    // }
+
+    // doSomething("Saurabh",28)
+
+    // doSomething("Laveen")
+
+
+    // function caluclateAge(year)
+    // {
+    //     let date = new Date();
+    //     return date.getFullYear() - year;
+    // }
+
+    // console.log(caluclateAge(1995));
+
+
+
+    // function checkSomething(d)
+    // {
+
+    //     //code 
+    //     d();
+    // }
+
+
+    // checkSomething(()=>{console.log("callback")})
+
+    // function dummy()
+    // {
+    //     console.log("hello dummy");
+
+    // }
+
+    // checkSomething(dummy);
+
+
+
+
+    // function doSomething()
+    // {
+    //     console.log("some task");
+    // }
+
+    // doSomething=a=>a+2;
+    
+
+    // console.log(doSomething(4));
+
+
+
+    let avengers = ["Thor","Ironman","Hulk","Hawkeye","Captain America"]
+
+    // forEach(d)
+    // {
+    //     d("Thor",0,avengers)
+    // }
+    
+    
+
+    avengers.forEach((ele,index,arr)=>{
+
+        console.log(ele);
+
+    })
+
+
+    let a = avengers.map((ele,i,arr)=>{
+        return ele+"av";
+    })
+
+    console.log(a)
+
+    let res = avengers.filter((ele,i,arr)=>{
+        return ele.includes("a");
+    })
+
+    console.log(res)
+
+
+    let r = avengers.find((ele,i,arr)=>{
+        return ele.includes("a");
+    })
+
+    console.log(r)
+
+    let b =avengers.some((e,i,a)=>{
+        return e.includes("a");
+    })
+
+    console.log(b);
+
+    
+
+   
+
+    
+
+
+
+        
+        
+
+       
+
+    </script>
+</body>
+</html>

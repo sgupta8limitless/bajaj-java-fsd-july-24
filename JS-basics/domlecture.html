@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one
+        {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+
+        .head
+        {
+            font-family: calibri;
+            font-weight: bold;
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+
+
+        <div class="one">
+
+        </div>
+
+        <h1 class="head">Hello Everyone</h1>
+
+        <h1 class="one two">Bye Guys</h1>
+
+        <button onclick="chanhgeContent()">Click to change</button>
+
+        <img id="image" src="https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="300px" alt="img">
+
+        <button onclick="changeImage()">Change Image</button>
+
+
+    <script>
+
+       
+        
+
+        // console.log(document.getElementsByTagName('h1')[1].innerText)
+        function chanhgeContent()
+        {
+            let h1 = document.getElementsByTagName('h1')[1];
+            // h1.innerText = "changed";
+            h1.style.fontFamily="arial";
+
+            // h1.setAttribute("class","head");
+
+            h1.classList.add("head");
+
+
+
+        }
+
+
+        function changeImage()
+        {
+            document.getElementById('image').setAttribute("src","https://images.pexels.com/photos/1276518/pexels-photo-1276518.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+        }
+       
+
+        
+
+
+    </script>
+
+</body>
+</html>
