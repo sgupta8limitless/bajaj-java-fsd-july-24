@@ -1,0 +1,18 @@
+<div class="product">
+
+    <img [src]=imageUrl alt="image" width="200px">
+
+    <h1>{{name}}</h1>
+    <p>{{price}}</p>
+
+    <h2>{{category}}</h2>
+
+    <button (click)="printDetails($event)">View Details</button>
+
+    <button (click)="changeName()">Change Name</button>
+
+    <input type="text" [(ngModel)]="name">
+
+
+</div>
+

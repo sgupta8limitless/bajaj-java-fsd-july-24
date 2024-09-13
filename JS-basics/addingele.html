@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding elements</title>
+
+    <style>
+        /* .main
+        {
+            width: 400px;
+            height: 500px;
+            background-color: gray;
+            display: none;
+        } */
+
+        .parent
+        {
+            width: 500px;
+            height: 600px;
+            border: 10px solid black;
+            margin: 50px;
+            position: relative;
+
+        }
+
+        .container
+        {
+            width:300px ;
+            height: 500px;
+            border: 5px solid red;
+            margin: 20px;
+        }
+
+        .one 
+        {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+           
+        
+        }
+
+        .two 
+        {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position:fixed;
+            top: 0;
+            left: 0;
+            /* left: 10000px; */
+            /* top: 40px; */
+            /* margin-top: -30px; */
+
+        }
+
+        .three
+        {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <!-- relative - element is positioned according to its original positiion  -->
+     <!-- absolute -  -->
+     <!-- element is either positioned according to viewport or to its nearest positioned ancestor  -->
+
+    <div class="parent">
+
+        <div class="container">
+
+            <div class="one">
+
+            </div>
+    
+            <div class="two">
+    
+            </div>
+    
+            <div class="three">
+    
+            </div>
+
+        </div>
+
+        
+
+    </div>
+
+
+
+    <!-- <button onmouseenter="showBox()" onmouseout="hideBox()">Show Div</button> -->
+    <!-- <button onclick="showBox()">Show</button> -->
+
+    <!-- <div class="main" id="main">
+
+    </div> -->
+
+
+    <!-- <button onclick="doSomething()">click</button> -->
+
+    <input type="text" onkeyup="doSomething()">
+
+   
+
+
+    <script>
+
+        // function hideBox()
+        // {
+        //     document.getElementById("main").style.display="none";
+        // }
+
+        // function showBox()
+        // {
+        //     document.getElementById("main").style.display="block"
+        // }
+
+
+        function doSomething()
+        {
+            // console.log(event);
+        if(event.key==="s")
+        {
+            console.log(event);
+            console.log("doing something");
+        }
+            
+        }
+
+        // doSomething();
+
+    </script>
+
+    
+</body>
+</html>
