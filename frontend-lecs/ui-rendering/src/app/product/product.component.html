@@ -1,0 +1,19 @@
+<div class="product">
+
+    <h1>{{name}}</h1>
+    <p>{{price}}</p>
+    <p>{{category}}</p>
+
+    @if(country!="India")
+    {
+        <p class="foreign">{{country}}</p>
+    }
+    @else 
+    {
+        <p class="own">{{country}}</p>
+    }
+
+   
+
+   
+</div>

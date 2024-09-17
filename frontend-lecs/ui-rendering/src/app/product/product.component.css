@@ -1,0 +1,11 @@
+.product
+{
+    width: fit-content;
+    padding: 30px;
+    background-color: skyblue;
+}
+
+.own
+{
+    background-color: green;
+}

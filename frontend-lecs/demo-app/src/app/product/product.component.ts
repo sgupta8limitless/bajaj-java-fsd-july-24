@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ServiceoneComponent } from '../service/serviceone/serviceone.component';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,ServiceoneComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
@@ -26,6 +27,20 @@ export class ProductComponent {
   changeName()
   {
     this.category = "clothing"
+  }
+
+
+  ngOnInit(): void {
+    
+    console.log("component loaded")
+    
+  }
+
+
+  ngOnDestroy(): void {
+    
+    console.log("component destroyed")
+    
   }
 
 
