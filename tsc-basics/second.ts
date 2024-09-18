@@ -14,4 +14,5 @@ const observable = new Observable((subscribe)=>{
 
 observable.subscribe((data)=>{
     console.log(data)
+    console.log("hello")
 })

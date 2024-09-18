@@ -2,11 +2,13 @@ import { ProductComponent } from './product/product.component';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AboutComponent } from './about/about.component';
+import { ServiceComponent } from './service/service.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,ProductComponent],
+  imports: [RouterOutlet,ProductComponent,AboutComponent,ServiceComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
