@@ -13,8 +13,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @CrossOrigin
+@RestController
+@RequestMapping("/api/v1/users")
 public class UserController {
 
     @Autowired
@@ -36,7 +41,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody User authRequest)
+    public ResponseEntity<Object> login(@RequestBody User authRequest)
     {
         Authentication authentication =  authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(authRequest.getUsername(),authRequest.getPassword())
@@ -44,11 +49,23 @@ public class UserController {
 
         if(authentication.isAuthenticated())
         {
-            return jwtService.generateToken(authRequest.getUsername());
+
+            List<String> roles = authentication.getAuthorities()
+                    .stream()
+                    .map((authority)-> authority.getAuthority())
+                    .collect(Collectors.toList());
+
+            HashMap<String,Object> userDetails = new HashMap<>();
+
+            userDetails.put("token",jwtService.generateToken(authRequest.getUsername()));
+            userDetails.put("roles",roles);
+
+
+            return GlobalResponseHandler.createResponse("Login SuccessFull",userDetails,HttpStatus.OK);
         }
         else
         {
-            return "Something wrong";
+            return GlobalResponseHandler.createResponse("Wrong Username or Password",HttpStatus.UNAUTHORIZED);
         }
     }
 

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User, UserResponse } from '../interfaces/UserResponse';
+import { LoginResponse, UserResponse } from '../interfaces/UserResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +20,20 @@ export class UserService {
 
   createUser(user:any):Observable<UserResponse>
   {
-
     let headers = new HttpHeaders({
       "Content-Type":"application/json"
     })
+    return this.httpClient.post<UserResponse>(this.userUrl+"/register",user,{headers:headers})
+  }
 
-    return this.httpClient.post<UserResponse>(this.userUrl,user,{headers:headers})
+
+
+  loginUser(user:any):Observable<LoginResponse>
+  {
+    let headers = new HttpHeaders({
+      "Content-Type":"application/json"
+    })
+    return this.httpClient.post<LoginResponse>(this.userUrl+"/login",user,{headers:headers})
   }
 
 

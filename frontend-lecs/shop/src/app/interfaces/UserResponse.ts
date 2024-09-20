@@ -1,8 +1,10 @@
 export interface UserResponse {
-    data: User[]
+    data: User[] 
     message: string
   }
   
+
+
 export interface User {
     id?: number
     name: string
@@ -10,6 +12,19 @@ export interface User {
     createdAt?: string
     updatedAt?: string
   }
+
+
+
+  export interface LoginResponse {
+    data: LoginData
+    message: string
+  }
+
+
+export interface LoginData {
+    roles: string[];
+    token: string;
+}
 
 
 

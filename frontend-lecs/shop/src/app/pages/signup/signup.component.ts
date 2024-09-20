@@ -31,6 +31,7 @@ export class SignupComponent {
     {
       this.userService.createUser(this.registerForm.value).subscribe((response)=>{
         console.log(response)
+        this.registerForm.reset()
       })
     }
   }
