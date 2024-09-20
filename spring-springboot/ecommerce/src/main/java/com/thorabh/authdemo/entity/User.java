@@ -21,6 +21,11 @@ public class User {
 
     private String role = "user"; //Eg: admin or user
 
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Address> addressList = new ArrayList<>();
+
     public Long getId() {
         return id;
     }

@@ -1,1 +1,38 @@
-<p>createuser works!</p>
+<div class="form-container">
+
+    <form class="form" [formGroup]="createUserForm">
+
+        <h1>Create User</h1>
+
+        <input type="text" class="inp" placeholder="Enter Name" [formControl]="name">
+
+       
+
+            @if(name.errors?.['required']==true && name.touched==true)
+            {
+                <p class="error">Name is Required</p>
+            }
+            @else if(name.errors?.['minlength'])
+            {
+                <p class="error">Required length of name is {{name.errors?.['minlength'].requiredLength}}</p>
+            }
+
+      
+
+        <input type="text" class="inp" placeholder="Enter Email" [formControl]="email">
+
+        @if(email.errors?.['required']==true && email.touched==true)
+        {
+            <p class="error">Email is Required</p>
+        }
+        @else if(email.errors?.['pattern'])
+        {
+            <p class="error">email that must be in the following order: characters&#64;characters.domain characters followed by an &#64; sign, followed by more characters, and then a "."</p>
+        }
+
+        <button class="btn" type="button" [disabled]=createUserForm.invalid (click)="createUser()">Create</button>
+
+    </form>
+
+
+</div>

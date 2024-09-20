@@ -7,11 +7,14 @@ import { UsersComponent } from './pages/dashboard/users/users.component';
 import { CreateuserComponent } from './pages/dashboard/createuser/createuser.component';
 
 export const routes: Routes = [
+    
+    {path:"",component:LoginComponent},
     {path:"login",component:LoginComponent},
     {path:"signup",component:SignupComponent},
     {path:"dashboard",component:DashboardComponent,children:[
         {path:"users",component:UsersComponent},
         {path:"createuser",component:CreateuserComponent}
     ]},
-    {path:"**",component:NotfoundComponent}
+    {path:"**",component:NotfoundComponent},
+    
 ];

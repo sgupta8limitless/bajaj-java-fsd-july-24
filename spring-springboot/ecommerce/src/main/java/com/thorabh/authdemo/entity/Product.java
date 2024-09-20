@@ -1,41 +1,40 @@
-package com.thorabh.springbootdemo.entity;
+package com.thorabh.authdemo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "products")
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name",nullable = false,length = 30)
+    @Column(name = "name",length = 50)
     private String name;
 
-    @Column(name="email",nullable = false,unique = true,length = 50)
-    private String email;
+    @Column(name = "price")
+    private Integer price;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Address> addressList = new ArrayList<>();
+    @Column(name = "quantity")
+    private Integer quantity;
 
-//    @ManyToMany(mappedBy = "userList")
-//    private List<Product> productList;
+//    @ManyToMany
+//    @JoinTable(
+//            name = "product_users",
+//            joinColumns = @JoinColumn(name = "product_id"),
+//            inverseJoinColumns = @JoinColumn(name = "user_id")
+//    )
+//    private List<User> userList;
 
-    @OneToMany(mappedBy = "user")
-    @JsonIgnore
+    @OneToMany(mappedBy = "product")
     private List<CartItem> cartItemList;
-
 
     @Column(name = "created_at")
     @CreationTimestamp
@@ -45,14 +44,14 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    public User() {
+    public Product() {
     }
 
-    public User(String name, String email) {
+    public Product(String name, Integer price, Integer quantity) {
         this.name = name;
-        this.email = email;
+        this.price = price;
+        this.quantity = quantity;
     }
-
 
     public Long getId() {
         return id;
@@ -70,20 +69,20 @@ public class User {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
-    public List<Address> getAddressList() {
-        return addressList;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setAddressList(List<Address> addressList) {
-        this.addressList = addressList;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public List<CartItem> getCartItemList() {
@@ -112,10 +111,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

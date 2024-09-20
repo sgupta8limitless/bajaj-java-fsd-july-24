@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: segoe ui;
+}
+
+a 
+{
+    color: white;
+    text-decoration: none;
+}
+
+.error
+{
+    color: red;
+}
+
+.btn 
+{
+    padding: 10px 25px;
+    align-self: flex-start;
+    border: none;
+    background-color: #ef7125;
+    color: white;
+    border-radius: 10px;
+}

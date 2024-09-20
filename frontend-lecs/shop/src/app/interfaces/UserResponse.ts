@@ -4,13 +4,11 @@ export interface UserResponse {
   }
   
 export interface User {
-    id: number
+    id?: number
     name: string
     email: string,
-   
-    cartItemList: any[]
-    createdAt: string
-    updatedAt: string
+    createdAt?: string
+    updatedAt?: string
   }
 
 

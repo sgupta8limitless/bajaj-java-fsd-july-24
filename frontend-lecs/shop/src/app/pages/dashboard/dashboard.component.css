@@ -1,0 +1,17 @@
+.header
+{
+    width: 100%;
+    padding: 15px 50px;
+    background-color: #0c85e9;
+}
+
+.navigation
+{
+    width: 13%;
+    list-style-type: none;
+    display: flex;
+    /* background-color: red; */
+    justify-content: space-between;
+    color: white;
+}
+
