@@ -8,9 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/products")
-@CrossOrigin
 public class ProductController {
 
     @Autowired
@@ -20,6 +20,12 @@ public class ProductController {
     public ResponseEntity<Object> createProduct(@RequestBody Product product)
     {
         return GlobalResponseHandler.createResponse("Product Created",productService.create(product), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/index")
+    public ResponseEntity<Object> fetchAll()
+    {
+        return GlobalResponseHandler.createResponse("All Fetched",productService.index(),HttpStatus.OK);
     }
 
 

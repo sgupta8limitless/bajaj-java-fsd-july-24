@@ -7,6 +7,7 @@ import { CreateuserComponent } from './pages/dashboard/users/createuser/createus
 import { HomeComponent } from './pages/home/home.component';
 import { authGuard } from './guards/auth.guard';
 import { CreateproductComponent } from './pages/dashboard/products/createproduct/createproduct.component';
+import { ViewproductsComponent } from './pages/dashboard/products/viewproducts/viewproducts.component';
 
 export const routes: Routes = [
     
@@ -15,8 +16,9 @@ export const routes: Routes = [
     {path:"home",component:HomeComponent,canActivate:[authGuard]},
     {path:"signup",component:SignupComponent},
     {path:"dashboard",component:DashboardComponent,children:[
-        {path:"createuser",component:CreateuserComponent},
-        {path:"createproduct",component:CreateproductComponent}
+        {path:"",component:CreateuserComponent},
+        {path:"createproduct",component:CreateproductComponent},
+        {path:"viewproducts",component:ViewproductsComponent}
     ]},
     {path:"**",component:NotfoundComponent},
     

@@ -1,1 +1,32 @@
-<p>viewproducts works!</p>
+<div class="dash-container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for(product of products;track product.id)
+            {
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>
+                        <img class="pimg" [src]=product.imageUrl alt="Image">
+                    </td>
+                    <td>{{product.quantity}}</td>
+                </tr>
+            }
+           
+           
+        </tbody>
+    </table>
+
+</div>

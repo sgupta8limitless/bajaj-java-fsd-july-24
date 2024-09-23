@@ -1,1 +1,17 @@
-<p>createproduct works!</p>
+<div class="form-container">
+
+    <form class="form" [formGroup]="productForm">
+
+        <input type="text" class="inp" placeholder="Enter Product Name" [formControl]="name">
+
+        <input type="number" class="inp" placeholder="Enter Product Price" [formControl]="price">
+
+        <input type="number" class="inp" placeholder="Enter Product Quantity" [formControl]="quantity">
+
+        <input type="text" class="inp" placeholder="Enter Image Url" [formControl]="imageUrl">
+
+        <button class="btn" type="button" (click)="createUser()">Create Product</button>
+
+    </form>
+
+</div>

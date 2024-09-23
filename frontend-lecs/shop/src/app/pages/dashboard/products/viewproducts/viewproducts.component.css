@@ -1,0 +1,28 @@
+.dash-container
+{
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececec;
+}
+
+.table
+{
+    border: 1px solid gray;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+td,th
+{
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+.pimg 
+{
+    width: 50px;
+}

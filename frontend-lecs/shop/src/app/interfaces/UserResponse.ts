@@ -15,6 +15,8 @@ export interface User {
 
 
 
+  // Login response 
+
   export interface LoginResponse {
     data: LoginData
     message: string
@@ -24,6 +26,30 @@ export interface User {
 export interface LoginData {
     roles: string[];
     token: string;
+}
+
+
+
+// Create Product Response 
+
+export interface ProductResponse {
+  data: Product
+  message: string
+}
+
+export interface ProductsResponse {
+  data: Product[]
+  message: string
+}
+
+export interface Product {
+  id: number
+  name: string
+  price: number
+  quantity: number
+  imageUrl: string
+  createdAt: string
+  updatedAt: string
 }
 
 
