@@ -1,6 +1,7 @@
 package com.thorabh.authdemo.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -25,6 +26,9 @@ public class Product {
     @Column(name = "quantity")
     private Integer quantity;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
 //    @ManyToMany
 //    @JoinTable(
 //            name = "product_users",
@@ -33,6 +37,7 @@ public class Product {
 //    )
 //    private List<User> userList;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "product")
     private List<CartItem> cartItemList;
 
@@ -83,6 +88,14 @@ public class Product {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public List<CartItem> getCartItemList() {

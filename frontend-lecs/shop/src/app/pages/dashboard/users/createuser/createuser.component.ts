@@ -1,8 +1,9 @@
-import { UserService } from './../../../services/user.service';
+
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { User } from '../../../interfaces/UserResponse';
+
 import { Router } from '@angular/router';
+import { UserService } from '../../../../services/user.service';
 
 @Component({
   selector: 'app-createuser',
