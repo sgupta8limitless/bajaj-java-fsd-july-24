@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProductResponse, ProductsResponse } from '../interfaces/UserResponse';
+import { DeleteResponse, ProductResponse, ProductsResponse } from '../interfaces/UserResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +31,15 @@ export class ProductService {
 
     return this.httpClient.get<ProductsResponse>(this.productUrl+'/index',{headers:headers})
 
+  }
+
+  delete(id:any):Observable<DeleteResponse>
+  {
+    let headers = new HttpHeaders({
+      "Authorization":`Bearer ${localStorage.getItem("ecommerce_token")}`
+    })
+
+    return this.httpClient.delete<DeleteResponse>(this.productUrl+"/"+id,{headers:headers})
   }
 
 }

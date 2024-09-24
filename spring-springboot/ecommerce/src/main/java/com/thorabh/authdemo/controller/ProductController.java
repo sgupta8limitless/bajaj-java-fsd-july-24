@@ -28,5 +28,11 @@ public class ProductController {
         return GlobalResponseHandler.createResponse("All Fetched",productService.index(),HttpStatus.OK);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteProduct(@PathVariable Long id)
+    {
+        return GlobalResponseHandler.createResponse(productService.delete(id),HttpStatus.OK);
+    }
+
 
 }

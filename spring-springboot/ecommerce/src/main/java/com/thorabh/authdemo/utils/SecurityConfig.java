@@ -56,8 +56,9 @@ public class SecurityConfig {
                 .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(registry -> {
                     registry.requestMatchers("/api/v1/users/home", "api/v1/users/register", "/api/v1/users/login").permitAll();
+                    registry.requestMatchers("/api/v1/products/index").hasRole("user");
                     registry.requestMatchers("/api/v1/admin/**","/api/v1/products/**").hasRole("admin");
-                    registry.requestMatchers("/api/v1/users/**","/api/v1/products/index").hasRole("user");
+                    registry.requestMatchers("/api/v1/users/**").hasRole("user");
                     registry.anyRequest().authenticated();
                 })
                 .authenticationProvider(authenticationProvider())

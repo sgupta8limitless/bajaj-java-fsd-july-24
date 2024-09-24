@@ -8,18 +8,30 @@ import { HomeComponent } from './pages/home/home.component';
 import { authGuard } from './guards/auth.guard';
 import { CreateproductComponent } from './pages/dashboard/products/createproduct/createproduct.component';
 import { ViewproductsComponent } from './pages/dashboard/products/viewproducts/viewproducts.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
     
+    // public routes 
     {path:"",component:LoginComponent},
     {path:"login",component:LoginComponent},
-    {path:"home",component:HomeComponent,canActivate:[authGuard]},
     {path:"signup",component:SignupComponent},
-    {path:"dashboard",component:DashboardComponent,children:[
+
+    // user routes 
+    {path:"home",component:HomeComponent,canActivate:[authGuard]},
+    {path:"cart",component:CartComponent,canActivate:[authGuard]},
+    {path:"profile",component:ProfileComponent,canActivate:[authGuard]},
+    
+
+    // admin routes 
+    {path:"dashboard",component:DashboardComponent,canActivate:[authGuard],children:[
         {path:"",component:CreateuserComponent},
         {path:"createproduct",component:CreateproductComponent},
         {path:"viewproducts",component:ViewproductsComponent}
     ]},
+
+
     {path:"**",component:NotfoundComponent},
     
 ];

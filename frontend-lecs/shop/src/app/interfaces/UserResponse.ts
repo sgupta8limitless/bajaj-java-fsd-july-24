@@ -53,5 +53,10 @@ export interface Product {
 }
 
 
+export interface DeleteResponse {
+  message: string
+}
+
+
 
   

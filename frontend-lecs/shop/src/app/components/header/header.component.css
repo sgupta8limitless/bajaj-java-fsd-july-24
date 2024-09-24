@@ -1,0 +1,20 @@
+.header
+{
+    width: 100%;
+    padding: 20px 100px;
+    background-color: #ef7125;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 18px;
+
+}
+
+.navigation
+{
+    display: flex;
+    list-style-type: none;
+    /* background-color: red; */
+    width: fit-content;
+    column-gap: 20px;
+}

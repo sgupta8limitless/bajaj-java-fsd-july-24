@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component} from '@angular/core';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,5 +9,14 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+
+
+  constructor(private router:Router){}
+
+  logout()
+  {
+    localStorage.removeItem("ecommerce_token");
+    this.router.navigate(["/login"]);
+  }
 
 }

@@ -8,6 +8,7 @@
                 <th>Price</th>
                 <th>Image</th>
                 <th>Quantity</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,13 @@
                         <img class="pimg" [src]=product.imageUrl alt="Image">
                     </td>
                     <td>{{product.quantity}}</td>
+                    <td>
+                        <p class="actions">
+                            <i class="fa-solid fa-pen-to-square update"></i>
+                            <i class="fa-solid fa-trash delete" (click)=deleteProduct(product.id,$index)></i>
+                        </p>
+
+                    </td>
                 </tr>
             }
            

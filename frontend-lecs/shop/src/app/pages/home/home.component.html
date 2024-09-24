@@ -1,1 +1,22 @@
-<p>home works!</p>
+<app-header/>
+
+<div class="products">
+
+    @for(product of products;track product.id)
+    {
+        <div class="product">
+            <div class="card-img">
+                <img [src]=product.imageUrl alt="Image">
+            </div>
+
+            <div class="card-details">
+                <h3>{{product.name}}</h3>
+                <p>Technology . Phone . Camera</p>
+                <p>$ {{product.price}}</p>
+                <button class="btn"> Add To Cart</button>
+            </div>
+
+        </div>
+    }
+
+</div>

@@ -32,6 +32,7 @@ export class CreateproductComponent {
     {
       this.productService.create(this.productForm.value).subscribe((response=>{
         console.log(response)
+        this.productForm.reset()
       }))
     }
   }

@@ -24,4 +24,25 @@ export class ViewproductsComponent implements OnInit {
     
   }
 
+
+  deleteProduct(id:any,index:any)
+  {
+    this.productService.delete(id).subscribe(
+      (response)=>{
+      console.log(response);
+
+      // let index = this.products.findIndex((product)=>{
+      //   return product.id === id;
+      // })
+
+      this.products.splice(index,1);
+
+    },
+  )
+  }
+
 }
+
+
+
+// subscribe(()=>{},()=>{})
