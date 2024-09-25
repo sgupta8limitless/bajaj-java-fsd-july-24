@@ -1,7 +1,7 @@
 package com.thorabh.authdemo.controller;
 
-import com.thorabh.authdemo.beans.GlobalExceptionHandler;
 import com.thorabh.authdemo.beans.GlobalResponseHandler;
+import com.thorabh.authdemo.utils.CustomUserDetails;
 import com.thorabh.authdemo.entity.User;
 import com.thorabh.authdemo.service.UserService;
 import com.thorabh.authdemo.utils.JwtService;
@@ -55,10 +55,15 @@ public class UserController {
                     .map((authority)-> authority.getAuthority())
                     .collect(Collectors.toList());
 
+            CustomUserDetails customUserDetails = (CustomUserDetails)authentication.getPrincipal();
+
+
             HashMap<String,Object> userDetails = new HashMap<>();
 
             userDetails.put("token",jwtService.generateToken(authRequest.getUsername()));
             userDetails.put("roles",roles);
+            userDetails.put("username",customUserDetails.getUsername());
+//
 
 
             return GlobalResponseHandler.createResponse("Login SuccessFull",userDetails,HttpStatus.OK);

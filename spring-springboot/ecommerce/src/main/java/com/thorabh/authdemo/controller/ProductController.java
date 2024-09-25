@@ -34,5 +34,11 @@ public class ProductController {
         return GlobalResponseHandler.createResponse(productService.delete(id),HttpStatus.OK);
     }
 
+    @GetMapping("/hello")
+    public String doSomething()
+    {
+        return "this is admin";
+    }
+
 
 }

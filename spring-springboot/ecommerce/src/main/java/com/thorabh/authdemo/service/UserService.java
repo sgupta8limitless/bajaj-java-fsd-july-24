@@ -1,10 +1,9 @@
 package com.thorabh.authdemo.service;
 
+import com.thorabh.authdemo.utils.CustomUserDetails;
 import com.thorabh.authdemo.entity.User;
 import com.thorabh.authdemo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -28,20 +27,28 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        return org.springframework.security.core.userdetails.User
-                .builder()
-                .username(user.getUsername())
-                .password(user.getPassword())
-                .roles(getRoles(user))
-                .build();
+//        return org.springframework.security.core.userdetails.User
+//                .builder()
+//                .username(user.getUsername())
+//                .password(user.getPassword())
+//                .roles(getRoles(user))
+//                .build();
+
+        return new CustomUserDetails(user);
+
+
+
+
+
+
     }
 
-    private String[] getRoles(User user) {
-        if (user.getRole() == null) {
-            return new String[]{"user"};
-        }
-        return user.getRole().split(",");
-    }
+//    private String[] getRoles(User user) {
+//        if (user.getRole() == null) {
+//            return new String[]{"user"};
+//        }
+//        return user.getRole().split(",");
+//    }
 
     public User createUser(User user)
     {
