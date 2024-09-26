@@ -13,7 +13,7 @@
                 <h3>{{product.name}}</h3>
                 <p>Technology . Phone . Camera</p>
                 <p>$ {{product.price}}</p>
-                <button class="btn"> Add To Cart</button>
+                <button class="btn" (click)="addToCart(product.id)"> Add To Cart</button>
             </div>
 
         </div>

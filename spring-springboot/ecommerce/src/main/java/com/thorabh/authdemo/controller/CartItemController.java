@@ -20,7 +20,7 @@ public class CartItemController {
     CartItemService cartItemService;
 
     @PostMapping("")
-    public ResponseEntity<Object> createItem(@RequestBody CartItem cartItem)
+    public ResponseEntity<Object> addToCart(@RequestBody CartItem cartItem)
     {
 
         return GlobalResponseHandler.createResponse(
