@@ -3,6 +3,7 @@ package com.thorabh.authdemo.entity;
 
 //also called as ProductUser
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -53,6 +54,7 @@ public class CartItem {
         this.id = id;
     }
 
+    @JsonIgnore
     public User getUser() {
         return user;
     }

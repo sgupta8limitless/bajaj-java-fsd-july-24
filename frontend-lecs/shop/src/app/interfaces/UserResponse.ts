@@ -44,12 +44,12 @@ export interface ProductsResponse {
 
 export interface Product {
   id: number
-  name: string
-  price: number
-  quantity: number
-  imageUrl: string
-  createdAt: string
-  updatedAt: string
+  name?: string
+  price?: number
+  quantity?: number
+  imageUrl?: string
+  createdAt?: string
+  updatedAt?: string
 }
 
 
@@ -58,5 +58,19 @@ export interface DeleteResponse {
 }
 
 
+
+// cart response 
+
+export interface CartResponse {
+  data: CartItem[];
+  message: string;
+}
+export interface CartItem {
+  id?: number;
+  product?: Product;
+  quantity?: number;
+  createdAt?: string;
+  updatedAt?: string;
+}
 
   

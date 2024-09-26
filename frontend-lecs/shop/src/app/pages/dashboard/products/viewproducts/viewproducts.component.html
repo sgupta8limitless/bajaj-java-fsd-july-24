@@ -1,3 +1,29 @@
+@if(updateModalVisible===true)
+{
+    <div class="modal" (click)="hideUpdateModal($event)">
+
+
+        <form class="form" [formGroup]="updateProductForm">
+
+            <h1>Update Product</h1>
+
+            <input type="text" class="inp"  placeholder="Enter Product Name" [formControl]="name">
+    
+            <input type="number" class="inp" placeholder="Enter Product Price" [formControl]="price">
+    
+            <input type="number" class="inp" placeholder="Enter Product Quantity" [formControl]="quantity">
+    
+            <input type="text" class="inp" placeholder="Enter Image Url" [formControl]="imageUrl">
+    
+            <button class="btn" type="button" (click)="updateProduct()">Update Product</button>
+    
+        </form>
+    </div>
+}
+
+
+
+
 <div class="dash-container">
 
     <table class="table">
@@ -25,7 +51,7 @@
                     <td>{{product.quantity}}</td>
                     <td>
                         <p class="actions">
-                            <i class="fa-solid fa-pen-to-square update"></i>
+                            <i class="fa-solid fa-pen-to-square update" (click)="showUpdateModal(product)"></i>
                             <i class="fa-solid fa-trash delete" (click)=deleteProduct(product.id,$index)></i>
                         </p>
 

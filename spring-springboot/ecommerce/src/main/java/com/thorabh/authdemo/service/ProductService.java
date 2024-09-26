@@ -23,6 +23,7 @@ public class ProductService {
 
     public List<Product> index()
     {
+
         return productRepository.findAll();
     }
 

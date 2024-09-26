@@ -32,4 +32,25 @@ public class CartItemController {
 
     }
 
+
+    @GetMapping("/user")
+    public ResponseEntity<Object> fetchByUser()
+    {
+        return GlobalResponseHandler.createResponse(
+                "Cart Products",
+                cartItemService.findByUserId(),
+                HttpStatus.OK
+        );
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateItem(@RequestBody CartItem cartItem,@PathVariable Long id)
+    {
+        return GlobalResponseHandler.createResponse(
+                "Quantity Updated",
+                cartItemService.update(cartItem,id),
+                HttpStatus.OK
+        );
+    }
+
 }

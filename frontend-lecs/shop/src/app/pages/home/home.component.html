@@ -13,7 +13,21 @@
                 <h3>{{product.name}}</h3>
                 <p>Technology . Phone . Camera</p>
                 <p>$ {{product.price}}</p>
-                <button class="btn" (click)="addToCart(product.id)"> Add To Cart</button>
+
+                @if(checkIfExistInCart(product.id)===false)
+                {
+                    <button class="btn" (click)="addToCart(product.id)"> Add To Cart</button>
+                }
+                @else 
+                {
+                    <div class="quantity">
+                        <button class="btn" (click)="updateItem(product.id,-1)" >-</button>
+                        {{extractQuantity(product.id)}}
+                        <button class="btn" (click)="updateItem(product.id,1)">+</button>
+                    </div>
+                }
+
+                
             </div>
 
         </div>
