@@ -1,0 +1,6 @@
+com\thorabh\backend\repositories\ProductRepository.class
+com\thorabh\backend\BackendApplication.class
+com\thorabh\backend\services\ProductService.class
+com\thorabh\backend\controllers\ProductController.class
+com\thorabh\backend\entities\Product.class
+com\thorabh\backend\controllers\UserController.class
