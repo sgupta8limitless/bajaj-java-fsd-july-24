@@ -1,0 +1,32 @@
+version: '3'
+
+networks:
+  ecommerce-network:
+    driver: bridge
+
+services:
+  angular-app:
+    image: thorabh/ecommerce-frontend-img 
+    container_name: ecommerce-frontend-cont
+    build:
+      context: ./shop 
+      dockerfile: Dockerfile 
+    ports:
+      - "81:80"  
+    depends_on:
+    - spring-boot-app  
+    networks:
+      - ecommerce-network
+
+  spring-boot-app:
+    image: thorabh/ecommerce-backend-img  
+    container_name: ecommerce-backend-cont
+    build:
+      context: ./ecommerce  
+      dockerfile: Dockerfile 
+    ports:
+      - "8081:8080" 
+    networks:
+      - ecommerce-network
+
+
